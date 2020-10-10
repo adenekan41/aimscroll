@@ -7,7 +7,7 @@
  * Released under the MIT License.
  */
 
-export { default as useAimscroll } from './use-aim-scroll';
+export { default as useAimScroll } from './use-aim-scroll';
 export { default as useWillMount } from './use-will-mount';
 export { default as useScrollPosition } from './use-scroll-position';
 export * from './use-scroll-position';
