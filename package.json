@@ -32,7 +32,8 @@
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-terser": "^5.2.0"
   },
-  "bundlesize": [{
+  "bundlesize": [
+    {
       "path": "bundle-cjs/**/*.js"
     },
     {
