@@ -15,14 +15,14 @@
 
 <!-- useState, but simplified for complex states in React apps. -->
 
-### [See Demo On Codesandbox](https://codesandbox.io/s/aimscroll-pb971?file=/src/App.js)
+### [See Demo On Codesandbox](https://codesandbox.io/s/jolly-gould-6s6yl?file=/src/App.js)
 
 ## ⚡️Overview
 
 Have you ever tried to add a feature to an element when the users scrolls to a
-certain extent ? or even tried the popular scroll asthetic of adding a box
-shadow to your navbar when the user scrolls up ?. aimscroll is Painless utility
-libary to handle scroll positions and methods in React.
+certain extent ? or even tried the popular scroll aesthetic of adding a
+box-shadow to your navbar when the user scrolls up ?. aimscroll is Painless
+utility libary to handle scroll positions and methods in React.
 
 ## 🔧 Installation
 
@@ -54,10 +54,10 @@ example below
 
 ```jsx
 import React from 'react';
-import useAimScroll from 'aimscroll';
+import { useAimScroll } from 'aimscroll';
 
 export default function App() {
-  const [userScrolledUp] = useaimscroll(10);
+  const [userScrolledUp] = useAimScroll(10);
   return (
     <div className="App">
       {userScrolledUp && <h2>Tada!! i showed when the user scrolled up</h2>}
@@ -66,14 +66,14 @@ export default function App() {
 }
 ```
 
-You see, its really easy check the documentation for an outline of each and
-every utilites and how to use them properly
+You see!, its really easy check the documentation for an outline of each and
+every utilites and how to use them properly.
 
 ## 🍷 Documentation
 
-### useAimScroll
+### useAimScroll - [Demo](https://codesandbox.io/s/jolly-gould-6s6yl?file=/src/App.js)
 
-> returns -- Boolean and function accepts -- Number
+> returns -- Boolean and function, accepts -- Number
 
 - `scrollStart` - at what scroll point you want the function to invoke.
 - `scrollEnd` - at what point you want the function to unsubscribe.
@@ -82,10 +82,10 @@ every utilites and how to use them properly
 
 ```jsx
 import React from 'react';
-import useAimScroll from 'aimscroll';
+import { useAimScroll } from 'aimscroll';
 
 export default function App() {
-  const [userScrolledUp, forceUpdate] = useaimscroll(10, 100); // starts at 10 and ends at 100
+  const [userScrolledUp, forceUpdate] = useAimScroll(10, 100); // starts at 10 and ends at 100
   return (
     <div className="App">
       {userScrolledUp && <h2>Tada!! i showed when the user scrolled up</h2>}
@@ -94,16 +94,16 @@ export default function App() {
 }
 ```
 
-### useScrollPosition
+### useScrollPosition - [Demo](https://codesandbox.io/s/jolly-gould-6s6yl?file=/src/useScrollPositionDemo.js)
 
 > returns -- Object
 
-- `useScrollPosition` - checks for the current position of the users window on
-  the X and Y axis. see example below
+- `useScrollPosition` - checks for the current position of the users window /
+  document on the X and Y axis. see example below
 
 ```jsx
 import React from 'react';
-import useScrollPosition from 'aimscroll';
+import { useScrollPosition } from 'aimscroll';
 
 export default function App() {
   const { x, y } = useScrollPosition();
@@ -113,14 +113,14 @@ export default function App() {
         {x} {/* Returns the current scroll position on X axis */}
       </p>
       <p>
-        {y} {/* Returns the current scroll position on X axis */}
+        {y} {/* Returns the current scroll position on Y axis */}
       </p>
     </div>
   );
 }
 ```
 
-### useScrollX
+### useScrollX - [Demo](https://codesandbox.io/s/jolly-gould-6s6yl?file=/src/useScrollPositionDemo.js)
 
 > returns -- Number
 
@@ -134,13 +134,14 @@ import { useScrollX } from 'aimscroll';
 export default function App() {
   return (
     <div className="App">
-      <p>{useScrollX()}</p>
+      <p>{useScrollX()}</p>{' '}
+      {/* Returns the current scroll position on X axis */}
     </div>
   );
 }
 ```
 
-### useScrollY
+### useScrollY - [Demo](https://codesandbox.io/s/jolly-gould-6s6yl?file=/src/useScrollPositionDemo.js)
 
 > returns -- Number
 
@@ -154,7 +155,8 @@ import { useScrollY } from 'aimscroll';
 export default function App() {
   return (
     <div className="App">
-      <p>{useScrollY()}</p>
+      <p>{useScrollY()}</p>{' '}
+      {/* Returns the current scroll position on Y axis */}
     </div>
   );
 }
@@ -162,11 +164,11 @@ export default function App() {
 
 ## 🤔Thought Process
 
-Aimscroll is built on top of React Hooks. I first tried this concept when i was
-trying to add custom features to an element when the page offests a scroll
-position and seeing its re-usability and convenience, I decided to convert it to
-a standalone open-source library for others to benefit from the awesomeness of
-this package.
+Aimscroll is built on top of React. I first tried out this concept when i wanted
+to add custom features to an element at the point the page offests a scroll
+position, and i came up with aimscroll. Seeing its re-usability and convenience,
+I decided to convert it to a standalone open-source library for others to
+benefit from the awesomeness of this package.
 
 ## 🤝 License
 

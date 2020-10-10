@@ -1,7 +1,7 @@
 {
   "name": "aimscroll",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "git://github.com/adenekan41/aimscroll.git",
   "description": "Painless utility to handle scroll positions and methods in react",
   "author": "Adenekan Wonderful <hellocodewonders@gmail.com> (https://codewonders.dev)",
@@ -32,7 +32,8 @@
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-terser": "^5.2.0"
   },
-  "bundlesize": [{
+  "bundlesize": [
+    {
       "path": "bundle-cjs/**/*.js"
     },
     {
