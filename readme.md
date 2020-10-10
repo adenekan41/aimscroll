@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <img src="https://i.ibb.co/T1PbG13/Group-6iaim.png"/>
+  <img src="https://i.ibb.co/1X27zFt/Group-6.png" width="100%"/>
 </p>
 <h2 align="center"></h2>
 
