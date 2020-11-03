@@ -36,7 +36,7 @@ const useAimScroll = (scrollStart, scrollEnd) => {
     return function cleanupListener() {
       window.removeEventListener('scroll', scrollWindow);
     };
-  }, []);
+  });
 
   return [isScroll, setScroll];
 };
