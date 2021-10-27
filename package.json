@@ -5,8 +5,9 @@
   "repository": "git://github.com/adenekan41/aimscroll.git",
   "description": "Painless utility to handle scroll positions and methods in react",
   "author": "Adenekan Wonderful <hellocodewonders@gmail.com> (https://codewonders.dev)",
-  "main": "dist/bundle-umd/index.js",
+  "main": "dist/bundle-cjs/index.js",
   "module": "dist/bundle-es/index.js",
+  "jsnext:main": "dist/bundle-es/index.js",
   "browser": "dist/bundle-esm/index.js",
   "scripts": {
     "flush": "rm -rf dist",
