@@ -1,32 +1,38 @@
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
+
 import { useCallback, useLayoutEffect, useState } from 'react';
 
+/* ---------------------------- Interdependencies --------------------------- */
+import { isBrowser } from 'is-browser';
+
+interface ScrollPosition {
+  x: number;
+  y: number;
+}
 /**
  * Get Scroll Object
- * @function getScroll
  * @namespace window
- * @returns {Object}
+ * @returns {ScrollPosition}
  */
-const getScroll = () => {
+const getScroll = (): ScrollPosition => {
   return {
-    x: typeof window === 'undefined' ? 0 : window.pageXOffset || window.scrollX,
-    y:
-      typeof window === 'undefined'
-        ? 0
-        : window.pageYOffset || document.documentElement.scrollTop,
+    x: !isBrowser() ? 0 : window.pageXOffset || window.scrollX,
+    y: !isBrowser()
+      ? 0
+      : window.pageYOffset || document.documentElement.scrollTop,
   };
 };
 
 /**
  * Get scroll position of the application
  * @function useScrollPosition
- * @returns {Object}
+ * @returns {ScrollPosition}
  */
 
-const useScrollPosition = () => {
-  const [scrollPosition, setPosition] = useState(getScroll());
+const useScrollPosition = (): ScrollPosition => {
+  const [scrollPosition, setPosition] = useState<ScrollPosition>(getScroll());
 
   const scrollWindow = useCallback(() => {
     setPosition(getScroll());
@@ -46,9 +52,9 @@ const useScrollPosition = () => {
 /**
  * Get X axis of the body or window element
  * @function
- * @returns {(number|string)}
+ * @returns {number}
  */
-export const useScrollX = () => {
+export const useScrollX = (): number => {
   const { x } = useScrollPosition();
   return x;
 };
@@ -56,9 +62,9 @@ export const useScrollX = () => {
 /**
  * Get Y axis of the body or window element
  * @function
- * @returns {(number|string)}
+ * @returns {number}
  */
-export const useScrollY = () => {
+export const useScrollY = (): number => {
   const { y } = useScrollPosition();
   return y;
 };

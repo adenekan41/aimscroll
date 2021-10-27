@@ -3,6 +3,6 @@
 /* -------------------------------------------------------------------------- */
 import { useMemo } from 'react';
 
-const useWillMount = effect => useMemo(effect, []);
+const useWillMount = (effect: any) => useMemo(effect, []);
 
 export default useWillMount;
