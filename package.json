@@ -5,48 +5,55 @@
   "repository": "git://github.com/adenekan41/aimscroll.git",
   "description": "Painless utility to handle scroll positions and methods in react",
   "author": "Adenekan Wonderful <hellocodewonders@gmail.com> (https://codewonders.dev)",
-  "main": "bundle-umd/index.js",
-  "module": "bundle-es/index.js",
-  "jsnext:main": "bundle-es/index.js",
+  "main": "dist/bundle-umd/index.js",
+  "module": "dist/bundle-es/index.js",
+  "browser": "dist/bundle-esm/index.js",
   "scripts": {
-    "flush": "rm -rf bundle-cjs && rm -rf bundle-es && rm -rf bundle-umd",
+    "flush": "rm -rf dist",
     "build": "yarn flush && rollup -c && bundlesize",
-    "test": "jest",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+    "lint": "eslint --fix 'src/**/*'",
+    "dev": "yarn flush && rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "ts-types": " tsc --emitDeclarationOnly",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "build:major": "npm version major && git push origin master && npm publish",
+    "build:minor": "npm version minor && git push origin master && npm publish",
+    "build:patch": "npm version patch && git push origin master && npm publish"
   },
   "homepage": "https://github.com/adenekan41/aimscroll#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.9.6",
-    "@testing-library/react": "^10.4.7",
+    "@babel/preset-react": "^7.14.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/react": "^17.0.33",
     "bundlesize": "^0.18.0",
     "core-js": "^3.3.4",
-    "jest-environment-jsdom-fourteen": "1.0.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rollup": "^1.10.0",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup": "^2.58.3",
     "rollup-plugin-multi-input": "^1.0.3",
-    "babel-jest": "^26.1.0",
-    "rollup-plugin-node-resolve": "^4.2.3",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "^5.2.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   },
   "bundlesize": [
     {
-      "path": "bundle-cjs/**/*.js"
+      "path": "dist/bundle-cjs/**/*.js"
     },
     {
-      "path": "bundle-es/**/*.js"
+      "path": "dist/bundle-es/**/*.js"
     },
     {
-      "path": "bundle-umd/**/*.js"
+      "path": "dist/bundle-esm/**/*.js"
     }
   ],
   "files": [
-    "bundle-es",
-    "bundle-cjs",
-    "bundle-umd"
+    "dist/bundle-es",
+    "dist/bundle-cjs",
+    "dist/bundle-esm"
   ],
   "keywords": [
     "javascript",
@@ -60,16 +67,5 @@
   ],
   "peerDependencies": {
     "react": ">= 16.8.0"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ]
   }
 }
