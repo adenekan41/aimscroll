@@ -58,6 +58,4 @@ jspm_packages/
 .env
 
 # next.js build output
-bundle-es/
-bundle-cjs/
-bundle-umd/
+dist/
